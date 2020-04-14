@@ -1,0 +1,195 @@
+<html>
+<head>
+
+    <style type="text/css">
+        table{
+            font-family:华文楷体;
+            font-size:28px;
+            align:center;
+            width:550px;
+            height:150px;
+
+        }
+        input{
+
+            width:85%;
+            height:80%;
+        }
+        hr{
+            width:100%;
+        }
+        .sub{
+            width:100px;
+            height:30px;
+
+        }
+        #main{
+            padding:50px;
+            position:absolute;
+            top:10%;
+
+        }
+        #adiv,#sdiv,#ddiv,#udiv{
+            display:none;
+        }
+        body{
+            background-image:url("/common/1.jpg");
+            background-size:cover;
+        }
+    </style>
+    <script src="/js/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#ab").click(function(){
+                $("#adiv").slideToggle();
+            });
+            $("#sb").click(function(){
+                $("#sdiv").slideToggle();
+            });
+            $("#db").click(function () {
+                    $("#ddiv").slideToggle();
+                }
+            );
+            $("#ub").click(function () {
+                $("#udiv").slideToggle();
+            });
+        });
+        function check(){
+            var sid = document.form1.getElementsByName("sid")[0].value;
+            var sname = document.form1.getElementsByName("sname")[0].value;
+            if(sname == null || sname == "" ||sid == null || sid == ""){
+                alert("请输入完整");
+                return false;
+            }
+        }
+        function check4(){
+            var sid = document.form4.getElementsByName("sid")[0].value;
+            var sname = document.form4.getElementsByName("sname")[0].value;
+            if(sname == null || sname == "" ||sid == null || sid == ""){
+                alert("请输入完整");
+                return false;
+            }
+        }
+        function check2() {
+            var sid = document.form3.getElementsByName("sid")[0].value;
+            if(sid == null || sid == ""){
+                alert("学号必填");
+                return false;
+            }
+        }
+    </script>
+    <title>首页</title>
+
+</head>
+
+<body>
+
+<h2>Welcome</h2>
+<div id="main">
+    <table>
+        <tr>
+            <th align="left">请选择需要进行的操作：<hr/></th>
+        </tr>
+        <tr>
+            <td><button class="sub" id="ab">添加</button>
+                <div id="adiv">
+                    <form action="/add" method="POST" onSubmit="return check()" name="form1">
+                        <table>
+                            <tr>
+                                <th colspan="2">请在下面录入相关信息<hr/></th>
+                            </tr>
+                            <tr>
+                                <td>学号:</td>
+                                <td><input type="text" name="sid" /></td>
+                            </tr>
+                            <tr>
+                                <td>姓名:</td>
+                                <td><input type="text" name="sname" /></td>
+                            </tr>
+                            <tr>
+                                <td>选课:</td>
+                                <td><input type="text" name="cname" /></td>
+                            </tr>
+                            <tr>
+                                <td>成绩:</td>
+                                <td><input type="text" name="grade" /></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <input type="submit" value="提交" class="sub"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                <button class="sub" id="sb">查询</button>
+                <div id="sdiv">
+                    <form action="/query" method="post">
+                        <table>
+                            <tr>
+                                <th colspan="2">输入学号查找学生信息<hr/></th>
+                            </tr>
+                            <tr>
+                                <td>学号:</td>
+                                <td><input type="text" name="sid" /></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center"><input type="submit" value="查找" class="sub"/></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                <button class="sub" id="db">删除</button>
+                <div id="ddiv">
+                    <form action="/delete" method="post" name="form3" onsubmit="check2()">
+                        <table>
+                            <tr>
+                                <th colspan="2">可输入选课和学号删除学生信息<hr/></th>
+                            </tr>
+                            <tr>
+                                <td>选课:</td>
+                                <td><input type="text" name="stu.cname" /></td>
+                            </tr>
+                            <tr>
+                                <td>学号:（也可以仅根据学号删除学生选课信息）</td>
+                                <td><input type="text" name="stu.sid" /></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center"><input type="submit" value="删除" class="sub"/></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div> <button class="sub" id="ub">修改(暂时有点问题)</button>
+                <div id="udiv">
+                    <form action="/update" method="POST" onSubmit="return check4()" name="form4">
+                        <table>
+                            <tr>
+                                <th colspan="2">请在下面修改相关信息<hr/></th>
+                            </tr>
+                            <tr>
+                                <td>学号:</td>
+                                <td><input type="text" name="sid" /></td>
+                            </tr>
+                            <tr>
+                                <td>选课:</td>
+                                <td><input type="text" name="cname" /></td>
+                            </tr>
+                            <tr>
+                                <td>成绩:</td>
+                                <td><input type="text" name="grade" /></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <input type="submit" value="提交" class="sub"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,4 @@
+jdbcUrl = jdbc:postgresql://127.0.0.1:5432/stu_pg;
+user = postgres;
+password = zsl;
+driverClass = org.postgresql.Driver;
