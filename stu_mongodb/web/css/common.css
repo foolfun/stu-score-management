@@ -1,0 +1,28 @@
+table{
+    font-family:华文楷体;
+    font-size:28px;
+    align:center;
+    width:550px;
+    height:150px;
+}
+input{
+    width:85%;
+    height:80%;
+}
+hr{
+    width:100%;
+}
+.sub{
+    width:100px;
+    height:30px;
+}
+#main{
+    padding:50px;
+    position:absolute;
+    top:10%;
+
+}
+body{
+    background-image:url("/css/1.jpg");
+    background-size:cover;
+}
